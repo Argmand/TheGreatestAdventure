@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ItemSlot : MonoBehaviour, IPointerClickHandler
+public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
 {
     //===ITEM DATA===//
     public string itemName;
@@ -16,24 +16,12 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public Sprite emptySprite;
     public ItemType itemType;
 
-
-    [SerializeField]
-    private int maxNummberOfItems;
-
-
     //===ITEM SLOT===//
     [SerializeField]
     private TMP_Text quantityText;
 
     [SerializeField]
     private Image itemImage;
-
-
-    //===Item Description Slot===//
-    public Image itemDescriptionImg;
-    public TMP_Text itemDescritionNameText;
-    public TMP_Text itemDescriptionText;
-
 
     public GameObject selectedShader;
     public bool thisItemSelected;
@@ -67,21 +55,8 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         this.itemDescription = itemDescription;
 
         // Update Quantity
-        this.quantity += quantity;
-        if (this.quantity >= maxNummberOfItems)
-        {
-            quantityText.text = maxNummberOfItems.ToString();
-            quantityText.enabled = true;
-            isFull = true;
-
-            // Return the lEFTOVERS
-            int extraItems = this.quantity - maxNummberOfItems;
-            this.quantity = maxNummberOfItems;
-            return extraItems;
-        }
-        // Update Quantity Text
-        quantityText.text = this.quantity.ToString();
-        quantityText.enabled = true;
+        this.quantity = 1;
+        isFull = true;
 
         return 0;
     }
@@ -102,15 +77,8 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         inventoryManager.DeSelectAllSlots();
         selectedShader.SetActive(true);
         thisItemSelected = true;
-        itemDescritionNameText.text = itemName;
-        itemDescriptionText.text = itemDescription;
-        itemDescriptionImg.sprite = itemSprite;
-
-        if (itemDescriptionImg == null)
-        {
-            itemDescriptionImg.sprite = emptySprite;
-        }
     }
     public void OnRightClick() { }
 }
+
 
