@@ -16,12 +16,16 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     public Sprite emptySprite;
     public ItemType itemType;
 
+    private SpriteRenderer inGameMainHandSR, inGameOffHandSR, inGameCloackSR;
+
     //===ITEM SLOT===//
     [SerializeField]
-    private TMP_Text quantityText;
-
-    [SerializeField]
     private Image itemImage;
+
+    //===Equipped Slot===
+    [SerializeField]
+    private EquippedSlot mainHandSlot, offHandSlot, headSlot, bodySlot, relicSlot, feetSlot, cloackSlot, legsSlot;
+    //public Image eqippedItemImg;
 
     public GameObject selectedShader;
     public bool thisItemSelected;
@@ -31,6 +35,10 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     private void Start()
     {
         inventoryManager = GameObject.Find("InventoryCanvas").GetComponent<InventoryManager>();
+
+        inGameMainHandSR = GameObject.Find("MainHand").GetComponent<SpriteRenderer>();
+        inGameOffHandSR = GameObject.Find("OffHand").GetComponent<SpriteRenderer>();
+        inGameCloackSR = GameObject.Find("Cloack").GetComponent<SpriteRenderer>();
     }
 
     public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription, ItemType itemType)
@@ -49,7 +57,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
 
         // Update Image
         this.itemSprite = itemSprite;
-        itemImage.sprite = itemSprite;
+        itemImage.sprite = this.itemSprite; // Check
 
         // Update Description
         this.itemDescription = itemDescription;
@@ -74,10 +82,65 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     }
     public void OnLeftClick()
     {
-        inventoryManager.DeSelectAllSlots();
-        selectedShader.SetActive(true);
-        thisItemSelected = true;
+        if (thisItemSelected)
+        {
+            EquipGear();
+        }
+        else 
+        {
+            inventoryManager.DeSelectAllSlots();
+            selectedShader.SetActive(true);
+            thisItemSelected = true;
+        }
     }
+
+    private void EquipGear() 
+    {
+        if (itemType == ItemType.head)
+        {
+            headSlot.EquipGear(itemSprite, itemName);
+        }
+        if (itemType == ItemType.cloack)
+        {
+            cloackSlot.EquipGear(itemSprite, itemName);
+            inGameCloackSR.sprite = itemSprite;
+        }
+        if (itemType == ItemType.body)
+        {
+            bodySlot.EquipGear(itemSprite, itemName);
+        }
+        if (itemType == ItemType.relic)
+        {
+            relicSlot.EquipGear(itemSprite, itemName);
+        } 
+        if (itemType == ItemType.feet)
+        {
+            feetSlot.EquipGear(itemSprite, itemName);
+        }   
+        if (itemType == ItemType.mainHand)
+        {
+            mainHandSlot.EquipGear(itemSprite, itemName);
+            inGameMainHandSR.sprite = itemSprite;
+        }    
+        if (itemType == ItemType.offHand)
+        {
+            offHandSlot.EquipGear(itemSprite, itemName);
+            inGameOffHandSR.sprite = itemSprite;
+        }
+        if (itemType == ItemType.legs)
+        {
+            legsSlot.EquipGear(itemSprite, itemName);
+        }
+
+        EmptySlot();
+    }
+
+    private void EmptySlot()
+    {
+        itemImage.sprite = emptySprite;
+        isFull = false;
+    }
+
     public void OnRightClick() { }
 }
 
