@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class UseItem : MonoBehaviour
 {
-    [SerializeField] GameObject offHandEquipmentPrefab;
-    [SerializeField] Transform EquipmentOrgin;
+    [SerializeField] 
+    GameObject lanternLightPrefab;
+
+    [SerializeField] 
+    Transform EquipmentOrgin;
+
     private bool lantenernIsLit;
     GameObject lanternLightInstance;
+
+    [SerializeField] 
+    Transform playerParentGO;
 
 
     // Update is called once per frame
@@ -17,7 +24,8 @@ public class UseItem : MonoBehaviour
         {
             if (lantenernIsLit == false)
             {
-                lanternLightInstance = Instantiate(offHandEquipmentPrefab, EquipmentOrgin.position, Quaternion.identity);
+                lanternLightInstance = Instantiate(lanternLightPrefab, EquipmentOrgin.position, Quaternion.identity, playerParentGO);
+                lanternLightInstance.name = "Lantern Light";
                 lantenernIsLit = true;
             }
             else if (lanternLightInstance == true)
