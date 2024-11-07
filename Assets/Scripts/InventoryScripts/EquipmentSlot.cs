@@ -16,7 +16,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     public Sprite emptySprite;
     public ItemType itemType;
 
-    private SpriteRenderer inGameMainHandSR, inGameOffHandSR, inGameCloackSR;
+    private SpriteRenderer inGameMainHandSR, inGameOffHandSR, inGameCloackSR, inGameHeadSR, inGameBodySR, inGameRelicSR, inGameFeetSR, inGameLegsSR;
 
     //===ITEM SLOT===//
     [SerializeField]
@@ -25,7 +25,6 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     //===Equipped Slot===
     [SerializeField]
     private EquippedSlot mainHandSlot, offHandSlot, headSlot, bodySlot, relicSlot, feetSlot, cloackSlot, legsSlot;
-    //public Image eqippedItemImg;
 
     public GameObject selectedShader;
     public bool thisItemSelected;
@@ -88,6 +87,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
         }
         else
         {
+            //UnEquipGear();
             inventoryManager.DeSelectAllSlots();
             selectedShader.SetActive(true);
             thisItemSelected = true;
@@ -134,6 +134,13 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
 
         EmptySlot();
     }
+
+    /*private void UnEquipGear()
+    {
+        
+
+        EmptySlot();
+    }*/
 
     private void EmptySlot()
     {

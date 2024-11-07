@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UseItem : MonoBehaviour
+public class OffHandItem : MonoBehaviour
 {
     [SerializeField] 
     GameObject lanternLightPrefab;
@@ -14,7 +14,7 @@ public class UseItem : MonoBehaviour
     GameObject lanternLightInstance;
 
     [SerializeField] 
-    Transform playerParentGO;
+    Transform parentGO;
 
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class UseItem : MonoBehaviour
         {
             if (lantenernIsLit == false)
             {
-                lanternLightInstance = Instantiate(lanternLightPrefab, EquipmentOrgin.position, Quaternion.identity, playerParentGO);
+                lanternLightInstance = Instantiate(lanternLightPrefab, EquipmentOrgin.position, Quaternion.identity, parentGO);
                 lanternLightInstance.name = "Lantern Light";
                 lantenernIsLit = true;
             }

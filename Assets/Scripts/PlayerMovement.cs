@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -20,19 +21,36 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             moveDirection.y += 1.0f;
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                moveDirection.x *= 1.5f;
+            }
         }
         if (Input.GetKey(KeyCode.S))
         {
             moveDirection.y -= 1.0f;
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                moveDirection.x *= 1.5f;
+            }
         }
         if (Input.GetKey(KeyCode.D))
         {
             moveDirection.x += 1.0f;
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                moveDirection.x *= 1.5f;
+            }
         }
         if (Input.GetKey(KeyCode.A))
         {
             moveDirection.x -= 1.0f;
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                moveDirection.x *= 1.5f;
+            }
         }
+        
 
         Vector2 newVelocity = moveDirection;
         newVelocity.x *= MovementSpeed;
