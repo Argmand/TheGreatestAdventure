@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -95,10 +95,17 @@ MonoBehaviour:
   itemSprite: {fileID: 0}
   isFull: 0
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptySprite: {fileID: 21300000, guid: 9d5ba759bb77b674185df0d425b5f62d, type: 3}
   itemType: 0
-  quantityText: {fileID: 0}
   itemImage: {fileID: 3821250353869502976}
+  mainHandSlot: {fileID: 0}
+  offHandSlot: {fileID: 0}
+  headSlot: {fileID: 0}
+  bodySlot: {fileID: 0}
+  relicSlot: {fileID: 0}
+  feetSlot: {fileID: 0}
+  cloackSlot: {fileID: 0}
+  legsSlot: {fileID: 0}
   selectedShader: {fileID: 8640797876425325823}
   thisItemSelected: 0
 --- !u!1 &5876626922957372796
@@ -159,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.15686275}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -10,6 +10,10 @@ public class InventoryManager : MonoBehaviour
 
     public ItemSlot[] itemSlot;
     public EquipmentSlot[] equipmentSlot;
+    public EquippedSlot[] equippedSlot;
+
+    public ItemSO[] itemSO;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +23,7 @@ public class InventoryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("InventoryMenu")) 
+        if (Input.GetButtonDown("InventoryMenu"))
         {
             Inventory();
         }
@@ -95,7 +99,7 @@ public class InventoryManager : MonoBehaviour
             return quantity;
         }
 
-        
+
     }
 
     public void DeSelectAllSlots()
@@ -107,8 +111,13 @@ public class InventoryManager : MonoBehaviour
         }
         for (int i = 0; i < equipmentSlot.Length; i++)
         {
-            itemSlot[i].selectedShader.SetActive(false);
-            itemSlot[i].thisItemSelected = false;
+            equipmentSlot[i].selectedShader.SetActive(false);
+            equipmentSlot[i].thisItemSelected = false;
+        }
+        for (int i = 0; i < equippedSlot.Length; i++)
+        {
+            equippedSlot[i].selectedShader.SetActive(false);
+            equippedSlot[i].thisItemSelected = false;
         }
     }
 }
@@ -121,4 +130,10 @@ public enum ItemType
     consumable,
     mainHand,
     offHand,
+    head,
+    body,
+    legs,
+    feet,
+    cloack,
+    relic,
 };
