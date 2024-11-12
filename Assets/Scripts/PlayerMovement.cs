@@ -5,57 +5,53 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float MovementSpeed;
-    Rigidbody2D rBody;
+    public float moveSpeed;
+    public Rigidbody2D rb2d;
+    private Vector2 moveInput;
+    public float sprintSpeed;
+
+    public float stamina;
+
+    public bool playerInLight;
 
     // Start is called before the first frame update
     void Start()
     {
-        rBody = GetComponent<Rigidbody2D>();
+        playerInLight = false;
     }
+
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "LanternLight")
+        {
+            Debug.Log("lanternlight");
+            playerInLight = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        playerInLight = false;
+    }
+
+
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 moveDirection = Vector2.zero;
-        if (Input.GetKey(KeyCode.W))
-        {
-            moveDirection.y += 1.0f;
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                moveDirection.x *= 1.5f;
-            }
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            moveDirection.y -= 1.0f;
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                moveDirection.x *= 1.5f;
-            }
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            moveDirection.x += 1.0f;
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                moveDirection.x *= 1.5f;
-            }
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            moveDirection.x -= 1.0f;
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                moveDirection.x *= 1.5f;
-            }
-        }
-        
+        moveInput.x = Input.GetAxisRaw("Horizontal");
+        moveInput.y = Input.GetAxisRaw("Vertical");
 
-        Vector2 newVelocity = moveDirection;
-        newVelocity.x *= MovementSpeed;
-        newVelocity.y *= MovementSpeed;
+        moveInput.Normalize();
 
-        rBody.velocity = newVelocity;
+        rb2d.velocity = moveInput * moveSpeed;
+
+        if (Input.GetButton("Sprint") && stamina > 0)
+        {
+            rb2d.velocity = moveInput * moveSpeed * sprintSpeed;
+            stamina -= 1 * Time.deltaTime;
+        }
+        else stamina += 1 * Time.deltaTime;
     }
 }
