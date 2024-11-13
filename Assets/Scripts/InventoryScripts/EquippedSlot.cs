@@ -26,7 +26,15 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
     private string itemName;
     private string itemDescription;
 
+    //Class Refrenceses//
     private InventoryManager inventoryManager;
+
+    //Item inGame
+    private OffHandItem offHandItemUse;
+    [SerializeField]
+    private SpriteRenderer sRend;
+    //private SpriteRenderer inGameMainHandSR, inGameOffHandSR, inGameCloackSR, inGameHeadSR, inGameBodySR, inGameRelicSR, inGameFeetSR, inGameLegsSR;
+
 
     //Other Variables//
     private bool slotInUse;
@@ -43,6 +51,9 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
     private void Start()
     {
         inventoryManager = GameObject.Find("InventoryCanvas").GetComponent<InventoryManager>();
+
+        offHandItemUse = GameObject.Find("OffHand").GetComponent<OffHandItem>();
+        //inGameOffHandSR = GameObject.Find("OffHand").GetComponent<SpriteRenderer>();
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -59,25 +70,25 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    private void OnLeftClick() 
+    private void OnLeftClick()
     {
         if (thisItemSelected && slotInUse)
         {
             UnEquipGear();
         }
-        else 
-        { 
+        else
+        {
             inventoryManager.DeSelectAllSlots();
             selectedShader.SetActive(true);
             thisItemSelected = true;
         }
     }
-    private void OnRightClick() 
+    private void OnRightClick()
     {
         UnEquipGear();
     }
 
-    public void EquipGear(Sprite itemSprite, string itemName) 
+    public void EquipGear(Sprite itemSprite, string itemName)
     {
         // If something is already equiped, send back before re-writing the data for this slot 
         if (slotInUse)
@@ -97,19 +108,27 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
         playerDisplayImage.sprite = itemSprite;
 
         slotInUse = true;
+
+        // Enable Item Use
+        offHandItemUse.enabled = true;
     }
 
-    public void UnEquipGear() 
+    public void UnEquipGear()
     {
         inventoryManager.DeSelectAllSlots();
 
         inventoryManager.AddItem(itemName, 1, itemSprite, itemDescription, itemType);
-         
+
         // Update Slot Image
         this.itemSprite = emptySprite;
         slotImage.sprite = this.emptySprite;
         slotName.enabled = true;
 
         playerDisplayImage.sprite = emptySprite;
+
+        // Disable Item Use
+        offHandItemUse.enabled = false;
+
+        sRend.sprite = emptySprite;
     }
 }

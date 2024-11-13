@@ -23,7 +23,7 @@ public class InventoryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("InventoryMenu")) 
+        if (Input.GetButtonDown("InventoryMenu"))
         {
             Inventory();
         }
@@ -99,7 +99,7 @@ public class InventoryManager : MonoBehaviour
             return quantity;
         }
 
-        
+
     }
 
     public void DeSelectAllSlots()

@@ -16,7 +16,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     public Sprite emptySprite;
     public ItemType itemType;
 
-    private SpriteRenderer inGameMainHandSR, inGameOffHandSR, inGameCloackSR;
+    private SpriteRenderer inGameMainHandSR, inGameOffHandSR, inGameCloackSR, inGameHeadSR, inGameBodySR, inGameRelicSR, inGameFeetSR, inGameLegsSR;
 
     //===ITEM SLOT===//
     [SerializeField]
@@ -25,7 +25,6 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     //===Equipped Slot===
     [SerializeField]
     private EquippedSlot mainHandSlot, offHandSlot, headSlot, bodySlot, relicSlot, feetSlot, cloackSlot, legsSlot;
-    //public Image eqippedItemImg;
 
     public GameObject selectedShader;
     public bool thisItemSelected;
@@ -86,15 +85,16 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
         {
             EquipGear();
         }
-        else 
+        else
         {
+            //UnEquipGear();
             inventoryManager.DeSelectAllSlots();
             selectedShader.SetActive(true);
             thisItemSelected = true;
         }
     }
 
-    private void EquipGear() 
+    private void EquipGear()
     {
         if (itemType == ItemType.head)
         {
@@ -112,16 +112,16 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
         if (itemType == ItemType.relic)
         {
             relicSlot.EquipGear(itemSprite, itemName);
-        } 
+        }
         if (itemType == ItemType.feet)
         {
             feetSlot.EquipGear(itemSprite, itemName);
-        }   
+        }
         if (itemType == ItemType.mainHand)
         {
             mainHandSlot.EquipGear(itemSprite, itemName);
             inGameMainHandSR.sprite = itemSprite;
-        }    
+        }
         if (itemType == ItemType.offHand)
         {
             offHandSlot.EquipGear(itemSprite, itemName);
@@ -135,6 +135,13 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
         EmptySlot();
     }
 
+    /*private void UnEquipGear()
+    {
+        
+
+        EmptySlot();
+    }*/
+
     private void EmptySlot()
     {
         itemImage.sprite = emptySprite;
@@ -143,5 +150,6 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
 
     public void OnRightClick() { }
 }
+
 
 
