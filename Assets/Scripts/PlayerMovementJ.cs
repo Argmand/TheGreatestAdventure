@@ -10,7 +10,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveInput;
     public float sprintSpeed;
 
-    public float stamina;
+    public float stamina = 2.0f;
+    public float staminaTimer = 2.0f;
+    public float staminaTimerSpeed = 10.0f;
+    public bool staminaExhausted = false;
 
     public bool playerInLight;
 
@@ -37,6 +40,9 @@ public class PlayerMovement : MonoBehaviour
 
 
 
+
+
+
     // Update is called once per frame
     void Update()
     {
@@ -47,11 +53,30 @@ public class PlayerMovement : MonoBehaviour
 
         rb2d.velocity = moveInput * moveSpeed;
 
-        if (Input.GetButton("Sprint") && stamina > 0)
+        if (Input.GetButton("Sprint") && stamina > 0 && !staminaExhausted)
         {
             rb2d.velocity = moveInput * moveSpeed * sprintSpeed;
             stamina -= 1 * Time.deltaTime;
         }
-        else stamina += 1 * Time.deltaTime;
+        else if (stamina <= 0.0f)
+        {
+            staminaExhausted = true;
+            staminaTimer -= staminaTimerSpeed * Time.deltaTime;
+            if (staminaTimer < 0.0f)
+            {
+                stamina += 0.5f;
+                staminaTimer = 2.0f;
+                staminaExhausted = false;
+            }
+        }
+        else if (stamina > 0.0f)
+        {
+            stamina += Time.deltaTime;
+        }
+
+        if (stamina >= 2.0f)
+        {
+            stamina = 2.0f;
+        }
     }
 }
