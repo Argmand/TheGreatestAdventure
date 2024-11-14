@@ -2,108 +2,56 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Threading.Tasks;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float movementSpeed;
-    Rigidbody2D rBody;
+    public float moveSpeed;
+    public Rigidbody2D rb2d;
+    private Vector2 moveInput;
+    public float sprintSpeed;
 
-    public Image staminaBar;
-    public float stamina, maxStamina, staminaRegen;
-    public float moveCost, runCost;
-    public float chargeRate;
+    public float stamina;
 
-    
+    public bool playerInLight;
 
     // Start is called before the first frame update
     void Start()
     {
-        rBody = GetComponent<Rigidbody2D>();
+        playerInLight = false;
     }
 
-    /*private void regenStamina() 
+
+    private void OnTriggerStay2D(Collider2D other)
     {
-        
-        if (Input.GetKeyUp(KeyCode.LeftShift))
+        if (other.gameObject.tag == "LanternLight")
         {
-            Debug.Log("Shift Key Up");
-            for (int sRegen = 0; sRegen < maxStamina; sRegen++)
-            {
-                stamina += sRegen * Time.deltaTime;
-                staminaBar.fillAmount = stamina / maxStamina;
-            }
-            if (stamina > maxStamina)
-            {
-                stamina = maxStamina;
-            }
+            Debug.Log("lanternlight");
+            playerInLight = true;
         }
-    }*/
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        playerInLight = false;
+    }
+
+
 
     // Update is called once per frame
-    async void Update()
+    void Update()
     {
-        Vector2 moveDirection = Vector2.zero;
-        if (Input.GetKey(KeyCode.W))
+        moveInput.x = Input.GetAxisRaw("Horizontal");
+        moveInput.y = Input.GetAxisRaw("Vertical");
+
+        moveInput.Normalize();
+
+        rb2d.velocity = moveInput * moveSpeed;
+
+        if (Input.GetButton("Sprint") && stamina > 0)
         {
-            moveDirection.y += 1.0f;
+            rb2d.velocity = moveInput * moveSpeed * sprintSpeed;
+            stamina -= 1 * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.S))
-        {
-            moveDirection.y -= 1.0f;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            moveDirection.x += 1.0f;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            moveDirection.x -= 1.0f;
-            
-        }
-
-        
-
-        if (Input.GetKey(KeyCode.LeftShift) && stamina > 0 && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)))
-        {
-            moveDirection.x *= 1.5f;
-            moveDirection.y *= 1.5f;
-            stamina -= runCost * Time.deltaTime;
-            staminaBar.fillAmount = stamina / maxStamina;
-
-            
-        }
-
-        if (stamina < maxStamina && !Input.GetKey(KeyCode.LeftShift))
-        {
-            await regenStamina();
-        }
-
-        Vector2 newVelocity = moveDirection;
-        newVelocity.x *= movementSpeed;
-        newVelocity.y *= movementSpeed;
-
-        rBody.velocity = newVelocity;
-    }
-
-    public async Task regenStamina() 
-    {   
-        while (stamina < maxStamina)
-        {
-            await Task.Delay(50);
-            stamina += staminaRegen;
-            staminaBar.fillAmount = stamina / maxStamina;
-
-            if (stamina > maxStamina)
-            {
-                stamina = maxStamina;
-            }
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                Debug.Log("");
-            }
-
-        }
-        await Task.Yield();
+        else stamina += 1 * Time.deltaTime;
     }
 }
