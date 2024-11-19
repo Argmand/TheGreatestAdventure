@@ -10,14 +10,31 @@ public class PlayerMovementNew : MonoBehaviour
     private Vector2 moveInput;
     public float sprintSpeedIncrease;
 
+    //If player is in light
     public bool playerInLight;
     public bool playerIsSprinting;
 
+    //stamina test
     public float stamina, maxStamina, sRegen;
     public float runCost;
     public Image staminaBar;
 
     public Vector2 speedOMeter;
+
+
+
+    //player animation
+    public Animator _animator;
+    private const string _horizontal = "Horizontal";
+    private const string _vertical = "Vertical";
+    private const string _lastHorizontal = "LastHorizontal";
+    private const string _lastVertical = "LastVertical";
+    private void Awake()
+    {
+        rb2d = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+    }
+
 
 
     // Start is called before the first frame update
@@ -46,6 +63,7 @@ public class PlayerMovementNew : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Basic player movement
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
 
@@ -53,7 +71,7 @@ public class PlayerMovementNew : MonoBehaviour
 
         rb2d.velocity = moveInput * moveSpeed;
 
-
+        //Stamina test
         if (Input.GetButton("Sprint") && (Input.GetButton("Horizontal") || Input.GetButton("Vertical")))
         {
             playerIsSprinting = true;
@@ -79,6 +97,17 @@ public class PlayerMovementNew : MonoBehaviour
             rb2d.velocity = moveInput * moveSpeed;
         }
 
+        //Not sure what this does. I think it's just for devs to see the players speed
         speedOMeter = rb2d.velocity;
+
+
+        //player animation
+        _animator.SetFloat(_horizontal, moveInput.x);
+        _animator.SetFloat(_vertical, moveInput.y);
+        if (moveInput != Vector2.zero)
+        {
+            _animator.SetFloat(_lastHorizontal, moveInput.x);
+            _animator.SetFloat(_lastVertical, moveInput.y);
+        }
     }
 }
