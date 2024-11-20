@@ -20,7 +20,7 @@ public class PlayerMovementNew : MonoBehaviour
     public Vector2 speedOMeter;
 
     [SerializeField]
-    GameObject inventoryCanvas, gameoverCanvas;
+    GameObject inventoryCanvas;
 
 
     // Start is called before the first frame update
@@ -45,20 +45,7 @@ public class PlayerMovementNew : MonoBehaviour
         playerInLight = false;
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ghost") && stamina > -1)
-        {
-            stamina -= runCost * Time.deltaTime;
-            staminaBar.fillAmount = stamina / maxStamina;
-        }
-        else if (stamina <= -1)
-        {
-            Time.timeScale = 0;
-            inventoryCanvas.SetActive(false);
-            gameoverCanvas.SetActive(true);
-        }
-    }
+    
 
     // Update is called once per frame
     void Update()
