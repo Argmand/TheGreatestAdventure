@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3b06e6e2662f61f42ba12972da3b6972
+guid: 7e8c499cccdcb5e43bea46e6d1645f15
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,28 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rock_Tile 2_0
+      name: GrassTileEdge_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9319b4fe8159e534a8a9e41aa353bd25
+      internalID: 1269041805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrassTileEdge_1
       rect:
         serializedVersion: 2
         x: 16
@@ -105,31 +126,62 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -5, y: 4}
-        - {x: -8, y: -4}
-        - {x: -8, y: -8}
-        - {x: 8, y: -8}
-        - {x: 8, y: -2}
-        - {x: 7, y: 1}
-        - {x: 5, y: 4}
-        - {x: 3, y: 4}
-        - {x: 2, y: 3}
-        - {x: -1, y: 6}
-        - {x: -3, y: 6}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c94b86e94f10b734e9742c813b5cd62a
-      internalID: 2145014493
+      spriteID: c350135b548a01e4281b41144f7476d8
+      internalID: -1073355201
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rock_Tile 2_1
+      name: GrassTileEdge_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60271c77ba0d6d4418fdaa12ce62d669
+      internalID: -332173364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrassTileEdge_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 424b453090c9cf34485baf5ee815f876
+      internalID: 572818199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrassTileEdge_4
       rect:
         serializedVersion: 2
         x: 0
@@ -137,26 +189,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: 7, y: 8}
-        - {x: 5, y: 6}
-        - {x: 3, y: 1}
-        - {x: 3, y: -8}
-        - {x: 8, y: -8}
-        - {x: 8, y: 8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 940aee96db726fe4c8a615d8ce673c56
-      internalID: -67847176
+      spriteID: 0f8b342e85041ab4991cdf6f06d9c033
+      internalID: -1285747331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rock_Tile 2_2
+      name: GrassTileEdge_5
       rect:
         serializedVersion: 2
         x: 16
@@ -164,24 +210,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -8, y: 8}
-        - {x: -8, y: -8}
-        - {x: 8, y: -8}
-        - {x: 8, y: 8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e083dd8a65578d84c8042f8fd75e52cc
-      internalID: -654196351
+      spriteID: 61e8943d943b95743b6598795e117df7
+      internalID: -1147052387
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rock_Tile 2_3
+      name: GrassTileEdge_6
       rect:
         serializedVersion: 2
         x: 32
@@ -189,26 +231,41 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -8, y: 8}
-        - {x: -8, y: -8}
-        - {x: -3, y: -8}
-        - {x: -3, y: -4}
-        - {x: -5, y: 3}
-        - {x: -7, y: 8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2251997303a54534d80e17a96d392541
-      internalID: -1203453675
+      spriteID: e62204eb80f42c047925ecca495b9000
+      internalID: -2076710071
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rock_Tile 2_4
+      name: GrassTileEdge_7
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9893c67c57c89e3438eaf446b1897fe0
+      internalID: 1743275580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrassTileEdge_8
       rect:
         serializedVersion: 2
         x: 0
@@ -216,20 +273,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a793cea18587fdf4e81ecd5b79033329
-      internalID: 776726635
+      spriteID: 97eb4e26cf975d046bb1233e474440d8
+      internalID: 1271062243
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rock_Tile 2_5
+      name: GrassTileEdge_9
       rect:
         serializedVersion: 2
         x: 16
@@ -237,20 +294,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30c1cff76ebb06246b111a078acfdf49
-      internalID: 304972823
+      spriteID: 0cce13e505f756c42abe4be16e771581
+      internalID: 1584414380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rock_Tile 2_6
+      name: GrassTileEdge_10
       rect:
         serializedVersion: 2
         x: 32
@@ -258,14 +315,35 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c4b0e68ff1f7cc4595faa6d89e53c60
-      internalID: 91619984
+      spriteID: 1207d5eaa6d7f294dbda5a9b9886af7c
+      internalID: -1787891993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrassTileEdge_11
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45fc887db5f56c142a0b1c9107d3ecdb
+      internalID: -1345167091
       vertices: []
       indices: 
       edges: []
@@ -281,13 +359,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Rock_Tile 2_0: 2145014493
-      Rock_Tile 2_1: -67847176
-      Rock_Tile 2_2: -654196351
-      Rock_Tile 2_3: -1203453675
-      Rock_Tile 2_4: 776726635
-      Rock_Tile 2_5: 304972823
-      Rock_Tile 2_6: 91619984
+      GrassTileEdge_0: 1269041805
+      GrassTileEdge_1: -1073355201
+      GrassTileEdge_10: -1787891993
+      GrassTileEdge_11: -1345167091
+      GrassTileEdge_2: -332173364
+      GrassTileEdge_3: 572818199
+      GrassTileEdge_4: -1285747331
+      GrassTileEdge_5: -1147052387
+      GrassTileEdge_6: -2076710071
+      GrassTileEdge_7: 1743275580
+      GrassTileEdge_8: 1271062243
+      GrassTileEdge_9: 1584414380
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
