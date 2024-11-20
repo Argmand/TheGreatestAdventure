@@ -17,6 +17,9 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     public ItemType itemType;
 
     private SpriteRenderer inGameMainHandSR, inGameOffHandSR, inGameCloackSR, inGameHeadSR, inGameBodySR, inGameRelicSR, inGameFeetSR, inGameLegsSR;
+    //public TMP_Text mainHandItemName;
+    [SerializeField]
+    public EquipmentSO mainHandItemData, offHandItemData;
 
     //===ITEM SLOT===//
     [SerializeField]
@@ -29,6 +32,8 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     public GameObject selectedShader;
     public bool thisItemSelected;
 
+    public bool offHandItemUse, mainHandItemUse;
+
     private InventoryManager inventoryManager;
 
     private void Start()
@@ -38,6 +43,8 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
         inGameMainHandSR = GameObject.Find("MainHand").GetComponent<SpriteRenderer>();
         inGameOffHandSR = GameObject.Find("OffHand").GetComponent<SpriteRenderer>();
         inGameCloackSR = GameObject.Find("Cloack").GetComponent<SpriteRenderer>();
+
+        //mainHandItemName = GameObject.Find("MossyAxe").GetComponent<TMP_Text>();
     }
 
     public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription, ItemType itemType)
@@ -121,11 +128,13 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
         {
             mainHandSlot.EquipGear(itemSprite, itemName);
             inGameMainHandSR.sprite = itemSprite;
+            itemName = mainHandItemData.itemName;
         }
         if (itemType == ItemType.offHand)
         {
             offHandSlot.EquipGear(itemSprite, itemName);
             inGameOffHandSR.sprite = itemSprite;
+            itemName = offHandItemData.itemName;
         }
         if (itemType == ItemType.legs)
         {

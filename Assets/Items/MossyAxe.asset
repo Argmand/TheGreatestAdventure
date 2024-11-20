@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d92e99881f88f9d4f98d7be0d0713ee4, type: 3}
-  m_Name: Lantern
+  m_Name: MossyAxe
   m_EditorClassIdentifier: 
-  id: 0
-  itemName: Lantern
+  id: 1
+  itemName: MossyAxe
   itemPrefab: {fileID: 0}
