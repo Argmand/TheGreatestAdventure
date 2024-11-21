@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameOverScreen : MonoBehaviour
 {
     [SerializeField]
-    GameObject gameoverCanvas, inventoryCanvas;
+    GameObject gameoverScreen, inventoryCanvas;
 
     PlayerMovementNew playerMoveRef;
 
@@ -31,7 +31,7 @@ public class GameOverScreen : MonoBehaviour
         {
             Time.timeScale = 0;
             inventoryCanvas.SetActive(false);
-            gameoverCanvas.SetActive(true);
+            gameoverScreen.SetActive(true);
         }
     }
 }

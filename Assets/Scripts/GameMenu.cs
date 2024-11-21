@@ -26,6 +26,9 @@ public class GameMenu : MonoBehaviour, IPointerClickHandler
         if (Input.GetButtonDown("StopMenu"))
         {
             StopMenu();
+            highlightResumeOption.SetActive(false);
+            highlightResetOption.SetActive(false);
+            highlightQuitOption.SetActive(false);
         }
     }
 
@@ -54,9 +57,17 @@ public class GameMenu : MonoBehaviour, IPointerClickHandler
 
     public void HandlMouseEnter() 
     {
-        if (resumeButton.IsInteractable()) 
+        if (resumeButton.IsInteractable())
         {
             highlightResumeOption.SetActive(true);
+        }
+        else if (resetButton.IsInteractable())
+        {
+            highlightResetOption.SetActive(true);
+        }
+        else if (quitButton.IsInteractable())
+        {
+            highlightQuitOption.SetActive(true);
         }
     }
 
