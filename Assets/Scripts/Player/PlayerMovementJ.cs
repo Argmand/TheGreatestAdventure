@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "LanternLight")
         {
-            Debug.Log("lanternlight");
+            //Debug.Log("lanternlight");
             playerInLight = true;
         }
     }

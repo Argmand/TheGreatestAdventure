@@ -24,8 +24,6 @@ public class PlayerMovementNew : MonoBehaviour
     [SerializeField]
     GameObject inventoryCanvas;
 
-
-
     //player animation
     public Animator _animator;
     private const string _horizontal = "Horizontal";
@@ -52,7 +50,7 @@ public class PlayerMovementNew : MonoBehaviour
     {
         if (other.gameObject.tag == "LanternLight")
         {
-            Debug.Log("lanternlight");
+            //Debug.Log("lanternlight");
             playerInLight = true;
         }
     }
@@ -114,4 +112,13 @@ public class PlayerMovementNew : MonoBehaviour
             _animator.SetFloat(_lastVertical, moveInput.y);
         }
     }
+    /*private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Touch lanterhn");
+        if (collision.gameObject.tag == "LanternLight" && offHandItem.lampOilLeft < offHandItem.maxLampOil)
+        {
+            Debug.Log("ReFill");
+            offHandItem.lampOilLeft += offHandItem.oilRefill * Time.deltaTime;
+        }
+    }*/
 }

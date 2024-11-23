@@ -296,9 +296,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7032824427455673278}
   - component: {fileID: 5205528110707292649}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: StoneLantern
-  m_TagString: Untagged
+  m_TagString: StoneLantern
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -467,7 +467,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 264
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

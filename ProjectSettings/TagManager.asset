@@ -9,6 +9,8 @@ TagManager:
   - Destructable
   - Water
   - WoodLog
+  - Raft
+  - StoneLantern
   layers:
   - Default
   - TransparentFX
@@ -20,8 +22,8 @@ TagManager:
   - Tree
   - WoodLog
   - Ghost
-  - 
-  - 
+  - Ground
+  - StoneLantern
   - 
   - 
   - 

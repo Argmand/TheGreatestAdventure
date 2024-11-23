@@ -12,10 +12,20 @@ public class OffHandItem : MonoBehaviour
 
     private bool lantenernIsLit;
     GameObject lanternLightInstance;
+    bool touchingStoneLantern;
 
     [SerializeField] 
     Transform parentGO;
 
+    [SerializeField]
+    public float lampOilLeft, maxLampOil, oilCost, intensityAmount, oilRefill;
+
+    Light lanterLight;
+
+    private void Start()
+    {
+        //lanterLight = lanternLightInstance.GetComponent<Light>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -34,7 +44,27 @@ public class OffHandItem : MonoBehaviour
                 lantenernIsLit = false;
             }
         }
+        if (lantenernIsLit == true)
+        {
+            lampOilLeft -= oilCost * Time.deltaTime;
+            //lanterLight.intensity = Mathf.Lerp();
+            
 
-        //lanternLightInstance.AddComponent
+            if (lampOilLeft <= 0)
+            {
+                lampOilLeft = 0;
+                lantenernIsLit = false;
+                Destroy(lanternLightInstance);
+            }
+            
+        }
+        
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("StoneLantern") && lampOilLeft < maxLampOil)
+        {
+            lampOilLeft += oilRefill * Time.deltaTime; 
+        }
     }
 }

@@ -93,8 +93,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3666047672760141273}
-  - component: {fileID: 9193717310925806621}
   - component: {fileID: 7578109542391052956}
+  - component: {fileID: 748919203014620837}
   m_Layer: 8
   m_Name: LogSpriteHorizontal
   m_TagString: WoodLog
@@ -119,33 +119,6 @@ Transform:
   - {fileID: 8179956956126502447}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &9193717310925806621
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4708410762049553933}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 8
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!60 &7578109542391052956
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -158,7 +131,7 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1040
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -193,22 +166,49 @@ PolygonCollider2D:
     - - {x: -0.21631002, y: -0.061708212}
       - {x: -0.24869347, y: -0.12789083}
       - {x: -0.30955076, y: -0.17015195}
-      - {x: -0.44143152, y: -0.19228053}
-      - {x: 0.31133127, y: -0.19076562}
+      - {x: -0.43715644, y: -0.20083058}
+      - {x: 0.35515308, y: -0.1784954}
       - {x: 0.4110024, y: -0.16580367}
       - {x: 0.4237275, y: -0.15577388}
-      - {x: 0.43783903, y: -0.12954235}
-      - {x: 0.4594512, y: -0.0008661747}
-      - {x: 0.437469, y: 0.1243732}
+      - {x: 0.44794226, y: -0.13055265}
+      - {x: 0.47258532, y: 0.0072164536}
+      - {x: 0.45262384, y: 0.119321585}
       - {x: 0.42253208, y: 0.1530304}
       - {x: 0.40230274, y: 0.16742015}
-      - {x: 0.3144207, y: 0.18921375}
-      - {x: -0.44308424, y: 0.19383597}
+      - {x: 0.35911894, y: 0.17782009}
+      - {x: -0.43538928, y: 0.20153093}
       - {x: -0.3094325, y: 0.16683674}
       - {x: -0.24990559, y: 0.12604141}
       - {x: -0.20927238, y: 0.06579471}
       - {x: -0.20344281, y: 0.0007777214}
   m_UseDelaunayMesh: 0
+--- !u!50 &748919203014620837
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4708410762049553933}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 8
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &8369829370842573342
 GameObject:
   m_ObjectHideFlags: 0
