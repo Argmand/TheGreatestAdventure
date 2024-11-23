@@ -5,10 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - LanternLight
-  - Tree
-  - Destructable
-  - Water
-  - WoodLog
+  - Ghost
   layers:
   - Default
   - TransparentFX
@@ -18,8 +15,8 @@ TagManager:
   - UI
   - Enemy
   - Tree
-  - WoodLog
   - Ghost
+  - LanternLight
   - 
   - 
   - 

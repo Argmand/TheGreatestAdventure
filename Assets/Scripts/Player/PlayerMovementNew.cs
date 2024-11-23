@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,10 +22,7 @@ public class PlayerMovementNew : MonoBehaviour
 
     public Vector2 speedOMeter;
 
-    [SerializeField]
-    GameObject inventoryCanvas;
-
-
+    public OffHandItem lantenernIsLit;
 
     //player animation
     public Animator _animator;
@@ -62,11 +60,20 @@ public class PlayerMovementNew : MonoBehaviour
         playerInLight = false;
     }
 
-    
 
     // Update is called once per frame
     void Update()
     {
+
+        if (lantenernIsLit.lantenernIsLit)
+        {
+            playerInLight = true;
+        }
+        if (!lantenernIsLit.lantenernIsLit)
+        {
+            playerInLight = false;
+        }
+
         //Basic player movement
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
