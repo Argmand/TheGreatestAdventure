@@ -10,7 +10,7 @@ public class OffHandItem : MonoBehaviour
     [SerializeField] 
     Transform EquipmentOrgin;
 
-    private bool lantenernIsLit;
+    public bool lantenernIsLit;
     GameObject lanternLightInstance;
     bool touchingStoneLantern;
 

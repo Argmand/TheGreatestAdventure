@@ -16,7 +16,7 @@ public class GhostAI : MonoBehaviour
     public float timeLeft;
     public Rigidbody2D rb;
 
-    public PlayerMovement playerLightRef;
+    public PlayerMovementNew playerLightRef;
 
     private float distance;
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,8 +22,7 @@ public class PlayerMovementNew : MonoBehaviour
 
     public Vector2 speedOMeter;
 
-    [SerializeField]
-    GameObject inventoryCanvas;
+    public OffHandItem lantenernIsLit;
 
     //player animation
     public Animator _animator;
@@ -50,7 +50,7 @@ public class PlayerMovementNew : MonoBehaviour
     {
         if (other.gameObject.tag == "LanternLight")
         {
-            //Debug.Log("lanternlight");
+            Debug.Log("lanternlight");
             playerInLight = true;
         }
     }
@@ -60,11 +60,20 @@ public class PlayerMovementNew : MonoBehaviour
         playerInLight = false;
     }
 
-    
 
     // Update is called once per frame
     void Update()
     {
+
+        if (lantenernIsLit.lantenernIsLit)
+        {
+            playerInLight = true;
+        }
+        if (!lantenernIsLit.lantenernIsLit)
+        {
+            playerInLight = false;
+        }
+
         //Basic player movement
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
@@ -112,13 +121,4 @@ public class PlayerMovementNew : MonoBehaviour
             _animator.SetFloat(_lastVertical, moveInput.y);
         }
     }
-    /*private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("Touch lanterhn");
-        if (collision.gameObject.tag == "LanternLight" && offHandItem.lampOilLeft < offHandItem.maxLampOil)
-        {
-            Debug.Log("ReFill");
-            offHandItem.lampOilLeft += offHandItem.oilRefill * Time.deltaTime;
-        }
-    }*/
 }

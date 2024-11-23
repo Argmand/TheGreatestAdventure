@@ -9,7 +9,7 @@ public class GhostAINew : MonoBehaviour
     public GameObject player;
     public float speed;
     public float distanceBetween;
-    public PlayerMovement playerLightRef;
+    public PlayerMovementNew playerLightRef;
     private float distance;
 
     private Vector2 targetDirection;
