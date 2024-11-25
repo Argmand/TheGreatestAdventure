@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3666047672760141273}
   - component: {fileID: 7578109542391052956}
   - component: {fileID: 748919203014620837}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: LogSpriteHorizontal
   m_TagString: WoodLog
   m_Icon: {fileID: 0}

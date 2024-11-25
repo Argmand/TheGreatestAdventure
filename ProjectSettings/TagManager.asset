@@ -6,6 +6,11 @@ TagManager:
   tags:
   - LanternLight
   - Ghost
+  - StoneLantern
+  - Tree
+  - WoodLog
+  - Raft
+  - HouseDoor
   layers:
   - Default
   - TransparentFX
@@ -17,7 +22,7 @@ TagManager:
   - Tree
   - Ghost
   - LanternLight
-  - 
+  - HouseDoor
   - 
   - 
   - 

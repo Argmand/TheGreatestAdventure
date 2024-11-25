@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,7 +25,7 @@ public class PlayerMovementNew : MonoBehaviour
     public OffHandItem lantenernIsLit;
 
     //player animation
-    public Animator _animator;
+    private Animator _animator;
     private const string _horizontal = "Horizontal";
     private const string _vertical = "Vertical";
     private const string _lastHorizontal = "LastHorizontal";
